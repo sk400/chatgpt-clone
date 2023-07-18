@@ -1,95 +1,197 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import React from "react";
+import {
+  Box,
+  Center,
+  Flex,
+  HStack,
+  Heading,
+  Icon,
+  VStack,
+  Text,
+  Grid,
+  GridItem,
+} from "@/components/chakraui";
+import { FiSun } from "react-icons/fi";
+import { BsArrowRight, BsLightningCharge } from "react-icons/bs";
+import { CiWarning } from "react-icons/ci";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Box py="32" sx={{ width: "100%", px: { base: 5 } }}>
+      <Heading size="2xl" color="whiteAlpha.900" textAlign="center">
+        ChatGPT
+      </Heading>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Grid
+        templateColumns="repeat(12, 1fr)"
+        gap={5}
+        mt={10}
+        sx={{
+          px: { md: "24", lg: "24", xl: "32" },
+        }}
+      >
+        <GridItem colSpan={{ base: 12, sm: 12, md: 4 }}>
+          <Flex direction="column" alignItems="center">
+            <HStack alignItems="center" textAlign="center" mb={2}>
+              <Icon color="whiteAlpha.900" boxSize={9} mt={3}>
+                <FiSun />
+              </Icon>
+              <Heading size="md" color="whiteAlpha.900" fontWeight="normal">
+                Examples
+              </Heading>
+            </HStack>
+            <Flex direction="column" alignItems="center" gap={3}>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+                sx={{
+                  "&:hover": {
+                    bgColor: "gray.800",
+                  },
+                  cursor: "pointer",
+                }}
+              >
+                "Explain quantum computing in simple terms"
+                <Icon color="whiteAlpha.900" boxSize={5} mt={2}>
+                  <BsArrowRight />
+                </Icon>
+              </Text>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+                sx={{
+                  "&:hover": {
+                    bgColor: "gray.800",
+                  },
+                  cursor: "pointer",
+                }}
+              >
+                "Got any creative idea for a 10 year old's birthday"
+                <Icon color="whiteAlpha.900" boxSize={5} mt={2}>
+                  <BsArrowRight />
+                </Icon>
+              </Text>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+                sx={{
+                  "&:hover": {
+                    bgColor: "gray.800",
+                  },
+                  cursor: "pointer",
+                }}
+              >
+                "How do I make a HTTP request in javascript?"
+                <Icon color="whiteAlpha.900" boxSize={5} mt={2}>
+                  <BsArrowRight />
+                </Icon>
+              </Text>
+            </Flex>
+          </Flex>
+        </GridItem>
+        <GridItem colSpan={{ base: 12, sm: 12, md: 4 }}>
+          <Flex direction="column" alignItems="center">
+            <HStack alignItems="center" textAlign="center" mb={2}>
+              <Icon color="whiteAlpha.900" boxSize={9} mt={3}>
+                <BsLightningCharge />
+              </Icon>
+              <Heading size="md" color="whiteAlpha.900" fontWeight="normal">
+                Capabilities
+              </Heading>
+            </HStack>
+            <Flex direction="column" alignItems="center" gap={3}>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+              >
+                Remembers what user said earlier in the conversation
+              </Text>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+              >
+                Allows user to provide follow-up corrections
+              </Text>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+              >
+                Trained to decline inappropriate requests
+              </Text>
+            </Flex>
+          </Flex>
+        </GridItem>
+        <GridItem colSpan={{ base: 12, sm: 12, md: 4 }}>
+          <Flex direction="column" alignItems="center">
+            <HStack alignItems="center" textAlign="center" mb={2}>
+              <Icon color="whiteAlpha.900" boxSize={9} mt={3}>
+                <CiWarning />
+              </Icon>
+              <Heading size="md" color="whiteAlpha.900" fontWeight="normal">
+                Limitations
+              </Heading>
+            </HStack>
+            <Flex direction="column" alignItems="center" gap={3}>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+              >
+                May occasionally generate incorrect information
+              </Text>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+              >
+                May occasionally produce harmful instructions or biased content
+              </Text>
+              <Text
+                color="whiteAlpha.900"
+                bgColor="#3e3f4b"
+                px="3"
+                py="2"
+                borderRadius="md"
+                fontSize="sm"
+              >
+                Limited knowledge of world and events after 2021
+              </Text>
+            </Flex>
+          </Flex>
+        </GridItem>
+      </Grid>
+    </Box>
+  );
+};
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
