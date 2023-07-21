@@ -35,6 +35,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   PopoverAnchor,
+  useToast,
 } from "@chakra-ui/react";
 
 export {
@@ -72,4 +73,5 @@ export {
   PopoverArrow,
   PopoverCloseButton,
   PopoverAnchor,
+  useToast,
 };

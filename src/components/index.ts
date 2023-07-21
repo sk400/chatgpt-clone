@@ -5,3 +5,6 @@ export { default as Footer } from "./Footer";
 export { default as ChatInput } from "./ChatInput";
 export { default as Sidebar } from "./Sidebar";
 export { default as Login } from "./Login";
+export { default as NewChat } from "./NewChat";
+export { default as ChatRow } from "./ChatRow";
+export { default as Chats } from "./Chats";

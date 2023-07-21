@@ -1,42 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
-  Avatar,
   Box,
   Button,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
   Flex,
-  HStack,
   Icon,
-  Popover,
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverTrigger,
+  IconButton,
   Spacer,
   Text,
-  VStack,
-  useDisclosure,
 } from "@/components/chakraui";
 import { HiMenu } from "react-icons/hi";
-import { AiOutlinePlus, AiOutlineMore } from "react-icons/ai";
-import { RiDeleteBin5Line } from "react-icons/ri";
-import { FiLogOut } from "react-icons/fi";
-import { signOut } from "next-auth/react";
+import { AiOutlinePlus } from "react-icons/ai";
 
-type Props = {};
+type Props = {
+  onOpen: () => void;
+};
 
-const Navbar = (props: Props) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
-  const [opened, setOpened] = useState(false);
+const Navbar = ({ onOpen }: Props) => {
   return (
     <Box
       sx={{
@@ -49,16 +30,26 @@ const Navbar = (props: Props) => {
       }}
     >
       <Flex alignItems="center">
-        <Icon
-          as={HiMenu}
-          color="whiteAlpha.900"
-          boxSize={5}
-          sx={{
-            cursor: "pointer",
-          }}
+        <IconButton
+          aria-label="plus"
           onClick={onOpen}
-          // ref={btnRef}
-        />
+          sx={{
+            bgColor: "#343541",
+            "&:hover": {
+              bgColor: "#343541",
+            },
+          }}
+        >
+          <Icon
+            as={HiMenu}
+            color="whiteAlpha.900"
+            boxSize={5}
+            sx={{
+              cursor: "pointer",
+            }}
+          />
+        </IconButton>
+
         <Spacer />
         <Text color="whiteAlpha.900">New chat</Text>
         <Spacer />
@@ -71,130 +62,6 @@ const Navbar = (props: Props) => {
           }}
         />
       </Flex>
-
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-        <DrawerOverlay />
-        <DrawerContent bgColor="gray.900">
-          <DrawerCloseButton color="gray.200" />
-          <DrawerHeader>
-            <Button
-              leftIcon={<AiOutlinePlus />}
-              colorScheme="gray"
-              variant="outline"
-              width="90%"
-              textAlign="left"
-              color="white"
-              sx={{
-                "&:hover": {
-                  bgColor: "gray.700",
-                },
-              }}
-            >
-              New chat
-            </Button>
-          </DrawerHeader>
-
-          <DrawerBody></DrawerBody>
-
-          <DrawerFooter
-            sx={{
-              borderTop: "solid 1px",
-              borderTopColor: "gray.500",
-              height: "70px",
-            }}
-          >
-            <HStack
-              spacing="20"
-              sx={{
-                "&:hover": {
-                  bgColor: "#343541",
-                },
-                bgColor: opened ? "#343541" : "gray.900",
-                px: 2,
-                py: 1,
-                borderRadius: "md",
-                width: "270px",
-                cursor: "pointer",
-              }}
-            >
-              <HStack>
-                <Avatar
-                  name="Dan Abrahmov"
-                  src="https://bit.ly/dan-abramov"
-                  size="sm"
-                />
-                <Text color="gray.300" fontSize="md">
-                  Dan sulivan
-                </Text>
-              </HStack>
-
-              <Popover>
-                <PopoverTrigger>
-                  <Icon
-                    boxSize={8}
-                    color="gray.300"
-                    mt={2}
-                    onClick={() => setOpened(true)}
-                  >
-                    <AiOutlineMore />
-                  </Icon>
-                </PopoverTrigger>
-                <PopoverContent bgColor="gray.900" color="gray.100">
-                  <PopoverCloseButton />
-
-                  <PopoverBody>
-                    <VStack alignItems="start">
-                      <HStack
-                        sx={{
-                          "&:hover": {
-                            bgColor: "#343541",
-                          },
-                          px: 2,
-                          py: 1,
-                          borderRadius: "md",
-                          width: "270px",
-                          cursor: "pointer",
-                        }}
-                        onClick={() => {
-                          setOpened(false);
-                          onClose();
-                        }}
-                      >
-                        <Icon boxSize={6} mt="8px">
-                          <RiDeleteBin5Line />
-                        </Icon>
-                        <Text fontSize="sm">Clear conversations</Text>
-                      </HStack>
-                      <HStack
-                        sx={{
-                          "&:hover": {
-                            bgColor: "#343541",
-                          },
-                          px: 2,
-                          py: 1,
-                          borderRadius: "md",
-                          width: "270px",
-                          cursor: "pointer",
-                        }}
-                        onClick={() => {
-                          signOut();
-                          setOpened(false);
-                          onClose();
-                        }}
-                      >
-                        <Icon boxSize={6} mt="8px">
-                          <FiLogOut />
-                        </Icon>
-                        <Text fontSize="sm">Log out</Text>
-                      </HStack>
-                    </VStack>
-                  </PopoverBody>
-                </PopoverContent>
-              </Popover>
-            </HStack>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
     </Box>
   );
 };

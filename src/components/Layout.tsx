@@ -1,10 +1,14 @@
-import { Box, Flex } from "@/components/chakraui";
-import React from "react";
+"use client";
+
+import { Box, useDisclosure } from "@/components/chakraui";
+import React, { useRef } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box
       sx={{
@@ -16,7 +20,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       <Box>
-        <Sidebar />
+        <Sidebar onClose={onClose} isOpen={isOpen} />
       </Box>
       <Box
         sx={{
@@ -34,7 +38,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             width: "100%",
           }}
         >
-          <Navbar />
+          <Navbar onOpen={onOpen} />
         </Box>
         {/* Page contents */}
         <Box
