@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, HStack, Icon, Spacer, Text } from "@/components/chakraui";
+import { Box, HStack, Text } from "@/components/chakraui";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "@/firebase";

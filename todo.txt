@@ -6,8 +6,8 @@ input on homepage
 todo
 -----
 
-Loading
+
 
 scroll to bottom
-clear conversations
+
 

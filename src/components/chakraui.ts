@@ -43,6 +43,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Spinner,
 } from "@chakra-ui/react";
 
 export {
@@ -88,4 +89,5 @@ export {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Spinner,
 };
