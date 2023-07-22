@@ -25,7 +25,7 @@ const Login = (props: Props) => {
           src="/assets/logo.png"
         />
         <VStack spacing="2">
-          <Text color="white">Welcome to chat gpt</Text>
+          <Text color="white">Welcome to ChatGPT</Text>
           <Text color="white">Login with your Google account to continue</Text>
         </VStack>
         <Button
