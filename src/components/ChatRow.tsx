@@ -30,7 +30,7 @@ const ChatRow = ({ id, onClose }: Props) => {
     } else {
       setActive(false);
     }
-  }, [pathname]);
+  }, [pathname, id]);
 
   const [messages] = useCollection(
     session &&
