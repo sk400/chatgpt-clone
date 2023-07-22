@@ -5,8 +5,9 @@ input on homepage
 
 todo
 -----
-user's firstname on navbar
+
 Loading
-scrollbar
+
 scroll to bottom
-modal for delete chat warning
+clear conversations
+
