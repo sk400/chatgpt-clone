@@ -149,5 +149,3 @@ const ChatInput = (props: Props) => {
 };
 
 export default ChatInput;
-
-// #19c37d

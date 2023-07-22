@@ -76,6 +76,7 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
 
           <Box
             sx={{
+              height: "85vh",
               overflowY: "auto",
             }}
           >
@@ -83,6 +84,7 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
               <ChatRow key={chat?.id} id={chat?.id} onClose={onClose} />
             ))}
           </Box>
+
           {/* Footer */}
           {session && (
             <Box

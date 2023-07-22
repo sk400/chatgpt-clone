@@ -28,18 +28,22 @@ const Navbar = ({ onOpen }: Props) => {
   const router = useRouter();
 
   const createChat = async () => {
-    if (session?.user?.email?.length !== 0) {
-      const doc = await addDoc(
-        collection(db, "users", session?.user?.email!, "chats"),
-        {
-          userId: session?.user?.email!,
-          createdAt: serverTimestamp(),
-        }
-      );
+    try {
+      if (session?.user?.email?.length !== 0) {
+        const doc = await addDoc(
+          collection(db, "users", session?.user?.email!, "chats"),
+          {
+            userId: session?.user?.email!,
+            createdAt: serverTimestamp(),
+          }
+        );
 
-      if (doc?.id) {
-        router.push(`/chat/${doc?.id}`);
+        if (doc?.id) {
+          router.push(`/chat/${doc?.id}`);
+        }
       }
+    } catch (error) {
+      console.log(error);
     }
   };
 

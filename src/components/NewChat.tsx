@@ -15,35 +15,22 @@ const NewChat = ({ isDrawer }: Props) => {
   const { data: session } = useSession();
   const router = useRouter();
 
-  //   const createChat = async () => {
-  //     try {
-  //       const doc = await addDoc(
-  //         collection(db, "users", session?.user?.email!, "chats"),
-  //         {
-  //           userId: session?.user?.email!,
-  //           createdAt: serverTimestamp(),
-  //         }
-  //       );
-
-  //       //   console.log(doc);
-  //       console.log("here");
-
-  //       router.push(`/chat/${doc?.id}`);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
   const createChat = async () => {
-    const doc = await addDoc(
-      collection(db, "users", session?.user?.email!, "chats"),
-      {
-        userId: session?.user?.email!,
-        createdAt: serverTimestamp(),
-      }
-    );
+    try {
+      const doc = await addDoc(
+        collection(db, "users", session?.user?.email!, "chats"),
+        {
+          userId: session?.user?.email!,
+          createdAt: serverTimestamp(),
+        }
+      );
 
-    router.push(`/chat/${doc?.id}`);
+      if (doc?.id) {
+        router.push(`/chat/${doc?.id}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
