@@ -28,6 +28,18 @@ const Chats = ({ chatId }: Props) => {
       )
   );
 
+  if (messages?.docs?.length === 0) {
+    return (
+      <Text
+        sx={{
+          textAlign: "center",
+        }}
+      >
+        No chats found, start chatting {`${session && session?.user?.name}`}
+      </Text>
+    );
+  }
+
   return (
     <Box
       sx={{
