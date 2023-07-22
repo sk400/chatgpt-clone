@@ -36,6 +36,13 @@ import {
   PopoverCloseButton,
   PopoverAnchor,
   useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 
 export {
@@ -74,4 +81,11 @@ export {
   PopoverCloseButton,
   PopoverAnchor,
   useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
 };

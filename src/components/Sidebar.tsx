@@ -61,6 +61,7 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
           bgColor: "gray.900",
           width: "310px",
           height: "99.5vh",
+
           display: { base: "none", sm: "none", md: "none", lg: "block" },
           p: 2,
           position: "relative",
@@ -70,9 +71,15 @@ const Sidebar = ({ isOpen, onClose }: Props) => {
         <NewChat isDrawer={false} />
         {/* chats */}
 
-        {chats?.docs?.map((chat) => (
-          <ChatRow key={chat?.id} id={chat?.id} onClose={onClose} />
-        ))}
+        <Box
+          sx={{
+            overflowY: "auto",
+          }}
+        >
+          {chats?.docs?.map((chat) => (
+            <ChatRow key={chat?.id} id={chat?.id} onClose={onClose} />
+          ))}
+        </Box>
         {/* Footer */}
         {session && (
           <Box

@@ -28,16 +28,15 @@ const Chats = ({ chatId }: Props) => {
       )
   );
 
-  // console.log(messages?.docs[messages?.docs?.length - 1]?.data());
-
   return (
     <Box
       sx={{
         pb: 20,
       }}
     >
-      {messages?.docs?.map((doc) => (
+      {messages?.docs?.map((doc, index) => (
         <Box
+          key={index}
           sx={{
             bgColor:
               doc?.data()?.user?.name !== "ChatGPT" ? "#343541 " : "#444654",
@@ -47,7 +46,8 @@ const Chats = ({ chatId }: Props) => {
             alignItems="start"
             spacing="5"
             sx={{
-              py: 5,
+              pt: 5,
+              pb: 10,
               px: { base: 5, sm: 10 },
               maxWidth: "750px",
               mx: "auto",

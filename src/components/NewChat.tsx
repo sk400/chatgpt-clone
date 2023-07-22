@@ -43,9 +43,6 @@ const NewChat = ({ isDrawer }: Props) => {
       }
     );
 
-    //   console.log(doc);
-    console.log("here");
-
     router.push(`/chat/${doc?.id}`);
   };
 
